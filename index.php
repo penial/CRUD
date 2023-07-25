@@ -1,26 +1,3 @@
-<?php
-include 'database.php';
-if(isset($_POST['submit'])){
-  $username=$_POST['Name'];
-  $Date=$_POST['date_define'];
-  $address=$_POST['address'];
-  $Department=$_POST['department'];
-  $number=$_POST['Number'];
-  $Gender=$_POST['gender'];
-  $Blood=$_POST['Blood'];
-  $sql="INSERT INTO Staff(name,date_of_joining,address,department,phone_number,gender,blood_group)
-  Values('$username','$Date','$address','$Department','$number','$Gender','$Blood')";
-  if (mysqli_query($conn, $sql)) {
-    echo "Data inserted successfully";
-  }
-  else {
-    echo "Error: " . mysqli_error($conn);
-}
-}
-
-// Close connection
-mysqli_close($conn);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,6 +61,7 @@ mysqli_close($conn);
             </div>
             <div class="mt-5">
               <input type="submit" value="SUBMIT" name="submit" class="btn btn-success" >
+              <button type="button" value="VIEW PAGE" name="read" class="ml-2"><a href="read.php" class="btn btn-secondary">VIEW PAGE</a></button>
             </div>
           </div>
         </form>
@@ -91,3 +69,26 @@ mysqli_close($conn);
     </div>
   </body>
 </html>
+<?php
+include 'database.php';
+if(isset($_POST['submit'])){
+  $username=$_POST['Name'];
+  $Date=$_POST['date_define'];
+  $address=$_POST['address'];
+  $Department=$_POST['department'];
+  $number=$_POST['Number'];
+  $Gender=$_POST['gender'];
+  $Blood=$_POST['Blood'];
+  $sql="INSERT INTO Staff(name,date_of_joining,address,department,phone_number,gender,blood_group)
+  Values('$username','$Date','$address','$Department','$number','$Gender','$Blood')";
+  if (mysqli_query($conn, $sql)) {
+    echo "Data inserted successfully";
+  }
+  else {
+    echo "Error: " . mysqli_error($conn);
+}
+}
+
+// Close connection
+mysqli_close($conn);
+?>

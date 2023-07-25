@@ -43,8 +43,10 @@
                             echo "<td>".$row["phone_number"]."</td>";
                             echo "<td>".$row["gender"]."</td>";
                             echo "<td>".$row["blood_group"]."</td>";
-                            echo "<td><a class='btn btn-warning' href='update.php?id=".$row["id"]."'>UPDATE</a></td>";
-                            echo "<td><a class='btn btn-danger' href='delete.php?id=".$row["id"]." '>DELETE</a></td>";
+                            echo "<td><a class='btn btn-warning' href='update.php?updateid=".$row["id"]."' 
+                            onclick='return confirm(\"Are you sure to update this staff \")'>UPDATE</a></td>";
+                            echo "<td><a class='btn btn-danger' href='delete.php?deleteid=".$row["id"]." '
+                            onclick='return confirm(\"Are you sure you want to delete this staff?\")'>DELETE</a></td>";
                             echo "</tr>";
                         }
 
@@ -52,6 +54,10 @@
 
                     </tbody>
                 </table>
+                <div>
+                    <button type="Button"><a href="index.php" class="btn btn-primary">New user</a></button>
+                </div>
+
             </div>
         </div>
     </div>
